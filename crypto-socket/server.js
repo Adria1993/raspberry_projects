@@ -5,12 +5,8 @@ const server = net.createServer((socket) => {
 
   // Evento de datos recibidos desde el cliente
   socket.on('data', (data) => {
-    const message = data.toString().trim();
+    console.log(`Datos recibidos del cliente: ${data}`);
     // Puedes responder al cliente aquí si es necesario
-    console.log(`Mensaje del cliente: ${message}`);
-
-    // Enviar un mensaje de vuelta al cliente
-    socket.write(`Servidor: Recibido tu mensaje, ${message}`);
   });
 
   // Evento cuando se cierra la conexión con el cliente
