@@ -37,7 +37,7 @@ class CryptoTracker {
     console.log("entro", precios);
     for (const cripto in precios) {
       if (this.cartera[cripto]) {
-        const precioActual = precios[cripto].usd;
+        const precioActual = precios[cripto].eur;
         const inversionTotal = this.cartera[cripto].cantidad * precioActual;
         const gananciaPerdida = inversionTotal - this.cartera[cripto].inversion;
         console.log(precioActual, inversionTotal, gananciaPerdida);

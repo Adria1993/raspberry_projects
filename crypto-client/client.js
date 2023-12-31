@@ -25,8 +25,8 @@ class Cliente {
 
   // Método para manejar los datos recibidos del servidor
   handleServerData(data) {
-    console.log(`Datos recibidos del servidor: ${data}`);
-    // Puedes agregar tu lógica aquí para manejar los datos recibidos
+    let msg = JSON.parse(data);
+    console.log(msg);
   }
 
   // Método para enviar datos al servidor
