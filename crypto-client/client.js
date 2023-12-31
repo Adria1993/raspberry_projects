@@ -39,4 +39,4 @@ class Cliente {
 const cliente = new Cliente();
 
 // Ejemplo de cómo enviar datos desde la instancia del cliente
-cliente.sendToServer('Hola, servidor!');
+cliente.sendToServer("init");
