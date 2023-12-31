@@ -1,12 +1,20 @@
 const net = require('net');
+const CryptoTracker = require('./cryptoTracker');
 
 const server = net.createServer((socket) => {
-  console.log('Cliente conectado');
+  const cpto_tck = new CryptoTracker();
 
   // Evento de datos recibidos desde el cliente
-  socket.on('data', (data) => {
-    console.log(`Datos recibidos del cliente: ${data}`);
-    // Puedes responder al cliente aquí si es necesario
+  socket.on('data', async (data) => {
+    switch(data){
+      case 'init':
+        let crptos = await cpto_tck.obtenerPrecios();
+        socket.write(JSON.stringify(crptos));
+      break;
+      default:
+        socket.write("NO ES CORRECTO");
+      break;
+    }
   });
 
   // Evento cuando se cierra la conexión con el cliente
