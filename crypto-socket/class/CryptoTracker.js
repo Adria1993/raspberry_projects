@@ -4,11 +4,11 @@ class CryptoTracker {
   constructor() {
     // Configuración de la cartera
     this.cartera = {
-      BTC: {
+      bitcoin: {
         cantidad: 1.5,
         inversion: 5000,
       },
-      ETH: {
+      ethereum: {
         cantidad: 5,
         inversion: 3000,
       },
@@ -21,7 +21,7 @@ class CryptoTracker {
       const response = await axios.get('https://api.coingecko.com/api/v3/simple/price', {
         params: {
           ids: 'bitcoin,ethereum', // Puedes agregar más criptomonedas separadas por comas
-          vs_currencies: 'usd',
+          vs_currencies: 'usd,eur',
         },
       });
 
@@ -34,12 +34,13 @@ class CryptoTracker {
 
   actualizarCartera(precios) {
     let criptos = [];
+    console.log("entro", precios);
     for (const cripto in precios) {
       if (this.cartera[cripto]) {
         const precioActual = precios[cripto].usd;
         const inversionTotal = this.cartera[cripto].cantidad * precioActual;
         const gananciaPerdida = inversionTotal - this.cartera[cripto].inversion;
-
+        console.log(precioActual, inversionTotal, gananciaPerdida);
         criptos.push({
             cripto: cripto,
             actual_price: precioActual,

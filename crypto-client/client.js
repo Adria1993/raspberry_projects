@@ -7,7 +7,7 @@ class Cliente {
 
     // Dirección IP del servidor (puede ser 'localhost' si está ejecutándose en la misma máquina)
     this.HOST = '192.168.1.26';
-
+    //  this.HOST = '127.0.0.1';
 
     // Crea un nuevo socket para conectarse al servidor
     this.client = net.createConnection({ port: this.PORT, host: this.HOST }, () => {
