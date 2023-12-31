@@ -56,3 +56,5 @@ class CryptoTracker {
     this.obtenerPrecios();
   }
 }
+
+module.exports = CryptoTracker;
