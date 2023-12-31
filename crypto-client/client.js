@@ -8,9 +8,6 @@ const HOST = '192.168.1.26';
 
 // Crea un nuevo socket para conectarse al servidor
 const client = net.createConnection({ port: PORT, host: HOST }, () => {
-  console.log('Conectado al servidor');
-  
-  // Envía datos al servidor después de conectarse
   client.write('Hola, servidor!');
 });
 
