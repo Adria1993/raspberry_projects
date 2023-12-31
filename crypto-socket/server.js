@@ -1,5 +1,5 @@
 const net = require('net');
-const CryptoTracker = require('./cryptoTracker');
+const CryptoTracker = require('./class/CryptoTracker');
 
 const server = net.createServer((socket) => {
   const cpto_tck = new CryptoTracker();
