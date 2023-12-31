@@ -13,7 +13,7 @@ const client = net.createConnection({ port: PORT, host: HOST }, () => {
 
 // Evento de datos recibidos desde el servidor
 client.on('data', (data) => {
-  console.log(`Datos recibidos del servidor: ${data}`);
+  console.log(data);
 });
 
 // Evento cuando se cierra la conexión con el servidor
