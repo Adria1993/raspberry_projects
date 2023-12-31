@@ -10,7 +10,8 @@ const server = net.createServer((socket) => {
     switch(message){
       case 'init':
         let crptos = await cpto_tck.obtenerPrecios();
-        socket.write(JSON.stringify(crptos), message);
+        let detailed = {case: message, crypto: JSON.stringify(crptos)};
+        socket.write(detailed);
       break;
       default:
         socket.write("NO ES CORRECTO");
