@@ -6,8 +6,9 @@ const server = net.createServer((socket) => {
 
   // Evento de datos recibidos desde el cliente
   socket.on('data', async (data) => {
-    console.log(data, "value");
-    switch(data){
+    const message = data.toString().trim();
+    console.log(message, "value");
+    switch(message){
       case 'init':
         let crptos = await cpto_tck.obtenerPrecios();
         socket.write(JSON.stringify(crptos));
